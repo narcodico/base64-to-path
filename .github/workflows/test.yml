@@ -19,5 +19,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: ./
-      with: 
+      with:
+        filePath: ${{ github.workspace }}/android/key.properties
+        encodedString: c3RvcmVQYXNzd29yZD0xMjMNCmtleVBhc3N3b3JkPTEyMw0Ka2V5QWxpYXM9c29tZWtleQ0Kc3RvcmVGaWxlPS4uL2tleS5qa3M=
         milliseconds: 1000

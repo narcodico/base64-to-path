@@ -1,10 +1,18 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'base64-to-path'
+description: 'Writes a base64-encoded string a file path.'
+branding:
+  color: 'blue'
+  icon: 'file'
 inputs:
-  myInput:              # change this
-    description: 'input description here'
-    default: 'default value if applicable'
+  filePath:
+    description: 'Full path of the file to be written.'
+    required: true
+  encodedString:
+    description: 'A base64 encoded string.'
+    required: true
+outputs:
+  filePath:
+    description: 'File path.'
 runs:
   using: 'node12'
   main: 'dist/index.js'

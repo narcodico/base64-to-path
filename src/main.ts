@@ -1,28 +1,23 @@
 import * as core from '@actions/core'
 import * as fs from 'fs'
-import * as path from 'path'
-
-// get input parameter values from config
-var fileName = path.join(
-  process.env.RUNNER_TEMP || '',
-  core.getInput('fileName')
-)
 
 var encodedString = core.getInput('encodedString')
 
 async function run(): Promise<void> {
   try {
-    console.log('ENV', process.env)
+    console.log(process.env)
+    const filePath = core.getInput('filePath')
+    if (!filePath) core.setFailed('Invalid file path.')
+
     const tempFile = Buffer.from(encodedString, 'base64')
+    if (!tempFile) core.setFailed('Temporary file buffer is empty.')
 
-    if (tempFile.length == 0) core.setFailed('Temporary file value is not set')
-
-    fs.writeFile(fileName, tempFile, (err: any) => {
-      if (err) throw err
-      console.log('Wrote file!')
+    fs.writeFile(filePath, tempFile, (error: any) => {
+      if (error) throw error
+      console.log(`File successfully written to ${filePath}!`)
     })
 
-    core.setOutput('filePath', fileName)
+    core.setOutput('filePath', filePath)
   } catch (error) {
     core.setFailed(error.message)
   }
