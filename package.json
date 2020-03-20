@@ -1,8 +1,8 @@
 {
-  "name": "flutter-sign-apk-action",
+  "name": "base64-to-path",
   "version": "1.0.0",
   "private": false,
-  "description": "Setup flutter project for APK signing",
+  "description": "Writes a base64 encoded string to a predefined path.",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -15,22 +15,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RollyPeres/flutter-sign-apk-action"
+    "url": "git+https://github.com/RollyPeres/base64-to-path"
   },
   "keywords": [
     "github",
     "actions",
     "typescript",
+    "base64",
+    "write",
+    "file",
     "flutter",
     "apk",
-    "sign",
-    "base64"
+    "sign"
   ],
   "author": "Rolly Peres",
   "license": "MIT",
-  "homepage": "https://github.com/RollyPeres/flutter-sign-apk-action#readme",
+  "homepage": "https://github.com/RollyPeres/base64-to-path#readme",
   "bugs": {
-    "url": "https://github.com/RollyPeres/flutter-sign-apk-action/issues"
+    "url": "https://github.com/RollyPeres/base64-to-path/issues"
   },
   "dependencies": {
     "@actions/core": "^1.2.0"

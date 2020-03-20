@@ -55,6 +55,7 @@ module.exports = require("os");
 
 "use strict";
 
+/* eslint no-console: 0*/
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -74,10 +75,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core = __importStar(__webpack_require__(470));
 const fs = __importStar(__webpack_require__(747));
-var encodedString = core.getInput('encodedString');
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
+            const encodedString = core.getInput('encodedString');
+            if (!encodedString)
+                core.setFailed('Invalid encoded string.');
             console.log(process.env);
             const filePath = core.getInput('filePath');
             if (!filePath)
@@ -85,7 +88,7 @@ function run() {
             const tempFile = Buffer.from(encodedString, 'base64');
             if (!tempFile)
                 core.setFailed('Temporary file buffer is empty.');
-            fs.writeFile(filePath, tempFile, (error) => {
+            fs.writeFile(filePath, tempFile, error => {
                 if (error)
                     throw error;
                 console.log(`File successfully written to ${filePath}!`);
