@@ -1,16 +1,25 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
+const fs = require('fs')
+const path = require('path')
+
+// get input parameter values from config
+var fileName = path.join(process.env.RUNNER_TEMP, core.getInput('fileName'))
+
+var encodedString = core.getInput('encodedString')
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`)
+    console.log(process.env)
+    const tempFile = Buffer.from(encodedString, 'base64')
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+    if (tempFile.length == 0) core.setFailed('Temporary file value is not set')
 
-    core.setOutput('time', new Date().toTimeString())
+    fs.writeFile(fileName, tempFile, err => {
+      if (err) throw err
+      console.log('Wrote file!')
+    })
+
+    core.setOutput('filePath', fileName)
   } catch (error) {
     core.setFailed(error.message)
   }

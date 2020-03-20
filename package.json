@@ -1,8 +1,8 @@
 {
-  "name": "typescript-action",
-  "version": "0.0.0",
-  "private": true,
-  "description": "TypeScript template action",
+  "name": "flutter-sign-apk-action",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Setup flutter project for APK signing",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
@@ -15,15 +15,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/typescript-action.git"
+    "url": "git+https://github.com/RollyPeres/flutter-sign-apk-action"
   },
   "keywords": [
+    "github",
     "actions",
-    "node",
-    "setup"
+    "typescript",
+    "flutter",
+    "apk",
+    "sign",
+    "base64"
   ],
-  "author": "YourNameOrOrganization",
+  "author": "Rolly Peres",
   "license": "MIT",
+  "homepage": "https://github.com/RollyPeres/flutter-sign-apk-action#readme",
+  "bugs": {
+    "url": "https://github.com/RollyPeres/flutter-sign-apk-action/issues"
+  },
   "dependencies": {
     "@actions/core": "^1.2.0"
   },
