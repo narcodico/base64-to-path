@@ -10,16 +10,16 @@ jobs:
   build: # make sure build/ci work properly
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - run: |
         npm install
         npm run all
   test: # make sure the action works on a clean machine without building
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - uses: ./
       with:
-        filePath: ${{ github.workspace }}/android/key.properties
+        filePath: ${{ github.workspace }}/key.properties
         encodedString: c3RvcmVQYXNzd29yZD0xMjMNCmtleVBhc3N3b3JkPTEyMw0Ka2V5QWxpYXM9c29tZWtleQ0Kc3RvcmVGaWxlPS4uL2tleS5qa3M=
         milliseconds: 1000

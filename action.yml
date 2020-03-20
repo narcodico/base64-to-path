@@ -1,5 +1,5 @@
 name: 'base64-to-path'
-description: 'Writes a base64-encoded string a file path.'
+description: 'Writes a base64-encoded string to a file path.'
 branding:
   color: 'blue'
   icon: 'file'
